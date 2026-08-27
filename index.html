@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#1d1716">
+<meta name="description" content="Camila Castilho Arquitetura — Arquitetura e Interiores">
+<title>Camila Castilho | Arquitetura e Interiores</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+:root{
+  --bg:#171211; --panel:#211a18; --panel2:#2a211e;
+  --copper:#c99682; --copper2:#e1b7a6; --cream:#f5ebe7;
+  --muted:#b9a39c; --shadow:rgba(0,0,0,.42);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; min-height:100vh; color:var(--cream);
+  font-family:Inter,system-ui,sans-serif;
+  background:
+    radial-gradient(circle at 50% -10%,rgba(201,150,130,.22),transparent 35%),
+    radial-gradient(circle at 0% 80%,rgba(201,150,130,.08),transparent 28%),
+    var(--bg);
+}
+body:before{
+  content:""; position:fixed; inset:0; pointer-events:none; opacity:.14;
+  background-image:linear-gradient(115deg,transparent 0 47%,rgba(225,183,166,.35) 48%,transparent 49%),
+                   linear-gradient(25deg,transparent 0 62%,rgba(225,183,166,.25) 63%,transparent 64%);
+  background-size:180px 180px;
+}
+.app{width:min(100%,560px);margin:auto;padding:18px 15px 42px}
+.card{
+  overflow:hidden; border:1px solid rgba(225,183,166,.24); border-radius:32px;
+  background:linear-gradient(150deg,rgba(48,38,35,.96),rgba(23,18,17,.98));
+  box-shadow:0 30px 80px var(--shadow), inset 0 1px rgba(255,255,255,.06);
+}
+.top{
+  position:relative; padding:22px 20px 14px; text-align:center;
+}
+.mark{
+  display:inline-flex;align-items:center;gap:9px;text-transform:uppercase;
+  letter-spacing:.24em;font-size:10px;color:var(--copper2)
+}
+.mark i{width:28px;height:1px;background:var(--copper);display:block}
+.photo-wrap{position:relative;width:178px;height:178px;margin:20px auto 15px}
+.photo-ring{
+  position:absolute;inset:-7px;border-radius:50%;
+  background:conic-gradient(from 20deg,var(--copper),#6d4e44,var(--copper2),#674940,var(--copper));
+  box-shadow:0 0 0 1px rgba(255,255,255,.08),0 18px 35px rgba(0,0,0,.45);
+}
+.photo-ring:after{content:"";position:absolute;inset:3px;border-radius:50%;background:var(--bg)}
+.photo-wrap img{position:relative;width:100%;height:100%;object-fit:cover;border-radius:50%;border:5px solid #211a18}
+h1{
+  margin:5px 0 0;font:600 38px/1 'Cormorant Garamond',serif;
+  letter-spacing:.02em;
+}
+.role{margin:8px 0 2px;color:var(--muted);font-size:12px;letter-spacing:.22em;text-transform:uppercase}
+.divider{width:65px;height:1px;background:var(--copper);margin:16px auto 0}
+.actions{padding:10px 18px 22px;display:grid;gap:12px}
+.btn{
+  position:relative;display:flex;align-items:center;gap:14px;min-height:66px;
+  padding:0 18px;text-decoration:none;color:var(--cream);
+  border-radius:19px;border:1px solid rgba(225,183,166,.23);
+  background:linear-gradient(135deg,rgba(111,82,73,.62),rgba(45,35,32,.92));
+  box-shadow:0 10px 22px rgba(0,0,0,.22),inset 0 1px rgba(255,255,255,.08);
+  overflow:hidden;transition:.22s ease;
+}
+.btn:before{
+  content:"";position:absolute;inset:0;transform:translateX(-110%);
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.09),transparent);
+  transition:.5s ease;
+}
+.btn:hover{transform:translateY(-2px);border-color:rgba(225,183,166,.48);box-shadow:0 15px 28px rgba(0,0,0,.3)}
+.btn:hover:before{transform:translateX(110%)}
+.ico{
+  flex:0 0 42px;width:42px;height:42px;border-radius:13px;display:grid;place-items:center;
+  color:var(--copper2);border:1px solid rgba(225,183,166,.28);background:rgba(0,0,0,.16);
+}
+.ico svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.8}
+.label{text-align:left}.label b{display:block;font-size:14px}.label span{display:block;color:#a9928b;font-size:11px;margin-top:4px}
+.chev{margin-left:auto;color:#9f8177;font-size:22px}
+.info{
+  margin:0 18px 18px;padding:17px;border-radius:20px;
+  border:1px solid rgba(225,183,166,.17);background:rgba(0,0,0,.13);
+}
+.info-title{text-transform:uppercase;letter-spacing:.18em;font-size:9px;color:var(--copper2);margin-bottom:9px}
+.address{font:500 16px/1.4 'Cormorant Garamond',serif;color:#eadbd6}
+.mini{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.mini button{
+  border:1px solid rgba(225,183,166,.18);border-radius:13px;padding:12px 8px;
+  background:#2a211e;color:#d9c5bd;font:500 12px Inter;cursor:pointer
+}
+.footer{text-align:center;padding:0 18px 24px;color:#806d67;font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+.toast{
+  position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);
+  padding:12px 16px;border:1px solid rgba(225,183,166,.28);border-radius:13px;
+  background:#2a211e;color:#f5ebe7;font-size:12px;opacity:0;pointer-events:none;transition:.25s;
+  box-shadow:0 12px 30px rgba(0,0,0,.35)
+}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:420px){
+  .app{padding:8px 9px 28px}.card{border-radius:26px}
+  h1{font-size:34px}.photo-wrap{width:155px;height:155px}.actions{padding:8px 13px 18px}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <main class="card">
+    <section class="top">
+      <div class="mark"><i></i> Camila Castilho <i></i></div>
+      <div class="photo-wrap">
+        <div class="photo-ring"></div>
+        <img src="cartao-camila.jpg" alt="Camila Castilho Arquitetura">
+      </div>
+      <h1>Camila Castilho</h1>
+      <div class="role">Arquitetura e Interiores</div>
+      <div class="divider"></div>
+    </section>
+
+    <section class="actions">
+      <a class="btn" href="https://wa.me/5512997745432" target="_blank" rel="noopener">
+        <span class="ico"><svg viewBox="0 0 24 24"><path d="M20 11.7a8.1 8.1 0 0 1-12 7L4 20l1.3-3.7a8.1 8.1 0 1 1 14.7-4.6Z"/><path d="M9 8.2c.2-.4.4-.4.7-.4h.4c.2 0 .4.1.5.4l.6 1.5c.1.2.1.4-.1.6l-.5.6c.7 1.2 1.4 1.8 2.6 2.4l.6-.6c.2-.2.4-.2.6-.1l1.4.7c.3.1.4.3.3.6-.2.8-.8 1.3-1.6 1.3-2.1 0-5.5-2.8-6.1-5.7-.2-.6-.1-1 .6-1.3Z"/></svg></span>
+        <span class="label"><b>WhatsApp</b><span>Fale diretamente comigo</span></span><span class="chev">›</span>
+      </a>
+
+      <a class="btn" href="tel:+5512997745432">
+        <span class="ico"><svg viewBox="0 0 24 24"><path d="M7 4.5 9.4 4l1.5 3.7-1.7 1.2a14 14 0 0 0 6 6l1.2-1.7 3.7 1.5-.5 2.4c-.2.9-1 1.5-1.9 1.4A15.7 15.7 0 0 1 5.2 6.4C5 5.5 5.7 4.7 7 4.5Z"/></svg></span>
+        <span class="label"><b>Telefone</b><span>(12) 99774-5432</span></span><span class="chev">›</span>
+      </a>
+
+      <a class="btn" href="https://www.instagram.com/camila.castilho.arquitetura/" target="_blank" rel="noopener">
+        <span class="ico"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4"/><circle cx="12" cy="12" r="3.7"/><circle cx="17.3" cy="6.8" r=".8" fill="currentColor" stroke="none"/></svg></span>
+        <span class="label"><b>Instagram</b><span>@camila.castilho.arquitetura</span></span><span class="chev">›</span>
+      </a>
+    </section>
+
+    <section class="info">
+      <div class="info-title">Atendimento</div>
+      <div class="address">Rua Alcides Ramos Nogueira, 790 — sala 06<br>Pindamonhangaba — SP</div>
+      <div class="mini">
+        <button onclick="addContact()">＋ Salvar contato</button>
+        <button onclick="shareCard()">↗ Compartilhar</button>
+      </div>
+    </section>
+    <div class="footer">Projetos • Arquitetura • Interiores</div>
+  </main>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+function toast(msg){
+  const el=document.getElementById('toast'); el.textContent=msg; el.classList.add('show');
+  setTimeout(()=>el.classList.remove('show'),2200);
+}
+function addContact(){
+  const vcard=`BEGIN:VCARD
+VERSION:3.0
+FN:Camila Castilho
+ORG:Camila Castilho Arquitetura
+TITLE:Arquitetura e Interiores
+TEL;TYPE=CELL,VOICE:+5512997745432
+ADR;TYPE=WORK:;;Rua Alcides Ramos Nogueira, 790 - sala 06;Pindamonhangaba;SP;;Brasil
+URL:https://www.instagram.com/camila.castilho.arquitetura/
+END:VCARD`;
+  const blob=new Blob([vcard],{type:'text/vcard;charset=utf-8'});
+  const url=URL.createObjectURL(blob), a=document.createElement('a');
+  a.href=url;a.download='Camila-Castilho.vcf';a.click();URL.revokeObjectURL(url);
+  toast('Contato preparado para salvar');
+}
+async function shareCard(){
+  if(navigator.share){
+    try{await navigator.share({title:'Camila Castilho Arquitetura',text:'Arquitetura e Interiores — Camila Castilho',url:location.href});return}catch(e){}
+  }
+  try{await navigator.clipboard.writeText(location.href);toast('Link copiado!')}catch(e){toast('Copie o endereço desta página')}
+}
+</script>
+</body>
+</html>
