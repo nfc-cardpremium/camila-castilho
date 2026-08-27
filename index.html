@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Cartão Virtual - Camila Castilho Arquitetura</title>
+    <style>
+        /* Reset básico e configurações de tela */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #ede7e5; /* Cor de fundo suave para preencher a área excedente em telas maiores */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden; /* Impede rolagem da tela */
+        }
+
+        /* Container principal que mantém a proporção exata da imagem (9:16) */
+        .card-container {
+            position: relative;
+            aspect-ratio: 9 / 16;
+            height: 100vh; /* Foca em preencher a altura da tela */
+            max-width: 100vw;
+            background-image: url('cartao.jpg'); /* ATENÇÃO: A imagem final precisa ter esse exato nome */
+            background-size: 100% 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15); /* Sombra suave opcional para separar do fundo */
+        }
+
+        /* Ajuste responsivo: se a tela for mais estreita que a proporção 9:16, preenche a largura */
+        @media (max-aspect-ratio: 9/16) {
+            .card-container {
+                width: 100vw;
+                height: auto;
+            }
+        }
+
+        /* Hitboxes - Áreas invisíveis e clicáveis */
+        .btn-link {
+            position: absolute;
+            left: 15%; /* Centralização baseada na arte (15% das margens esquerdas) */
+            width: 70%; /* Largura da área clicável */
+            height: 6.8%; /* Altura da área clicável */
+            border-radius: 35px; /* Arredondamento fiel ao botão da arte */
+            z-index: 10;
+            
+            /* DICA DE POSICIONAMENTO: 
+               Para testar e ajustar o lugar dos botões, troque 'transparent' 
+               por 'rgba(255, 0, 0, 0.4)' temporariamente. */
+            background-color: transparent; 
+            
+            /* Melhorias de usabilidade mobile */
+            -webkit-tap-highlight-color: transparent; 
+            outline: none;
+            cursor: pointer;
+        }
+
+        /* Posições verticais (calculadas em porcentagem de cima para baixo) */
+        .btn-whatsapp {
+            top: 62.6%;
+        }
+        .btn-telefone {
+            top: 70.4%;
+        }
+        .btn-instagram {
+            top: 78.3%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card-container">
+        <!-- Link do WhatsApp (Formatado com código 55 do Brasil) -->
+        <a href="https://wa.me/5512997745432" class="btn-link btn-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"></a>
+
+        <!-- Link do Telefone -->
+        <a href="tel:+5512997745432" class="btn-link btn-telefone" aria-label="Telefone"></a>
+
+        <!-- Link do Instagram -->
+        <a href="https://www.instagram.com/camila.castilho.arquitetura?igsi=MXVsanV1OXM0dGNjeQ%3D%3D&utm_source=qr" class="btn-link btn-instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram"></a>
+    </div>
+
+</body>
+</html>
